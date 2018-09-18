@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css"  href="./src/css/style.min.css" />
+</head>
+<body>
+    
+    <div id="app">
+        <h1> {{titulo}}  </h1>
+
+        <input type="text" v-model="cadastro.name">
+        <input type="text" v-model="cadastro.age">
+        <button v-on:click="addDados" >send</button>
+    
+        <ul>
+            <li v-for="t in lista">
+                {{t.name}}  - {{t.age}} 
+            </li>
+        </ul>
+        <p class="paragrafos"  v-for="a in items">
+            {{a.id}}  - <span> {{a.title}} </span> - {{a.description}}   
+        </p>
+                <input type="text" v-model="busca">
+        <ul>
+            <li class="block" v-for="a in items | FilterBy busca">
+                <img :src=" a.imagem " alt="" class="imagem">
+                <h1 class="teste-h1">{{a.id}}</h1>
+                <h2 class="teste-h2">- {{a.description}} -</h2> 
+            </li>
+        </ul>
+
+    </div>
+
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="./node_modules/vue-resource/dist/vue-resource.js"></script>
+    <script src="./src/js/main.js"></script>
+</body>
+</html>
