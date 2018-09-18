@@ -3,7 +3,7 @@ var app = new Vue ({
     data:{
         titulo: 'title',
         items: [] ,
-        busca : '' ,
+        search: '',
         lista : [] ,
         cadastro: {
             name : '',
@@ -19,6 +19,8 @@ var app = new Vue ({
             this.cadastro.name = '';
             this.cadastro.age = ''
         },
+
+        
     },
     created : function(){
         this.$http.get('dataserver.json').then(function(response){
@@ -26,5 +28,13 @@ var app = new Vue ({
             this.items = response.data;
         });
     },
+    computed : {
+        filteredItems: function() {
+            return this.items.filter((item)=> {
+                return item.description.match(this.search)
+                
+            })
+        }
+    }
     
 })

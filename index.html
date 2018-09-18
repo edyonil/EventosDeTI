@@ -24,12 +24,12 @@
         <p class="paragrafos"  v-for="a in items">
             {{a.id}}  - <span> {{a.title}} </span> - {{a.description}}   
         </p>
-                <input type="text" v-model="busca">
+                <input type="text" v-model="search">
         <ul>
-            <li class="block" v-for="a in items | FilterBy busca">
-                <img :src=" a.imagem " alt="" class="imagem">
-                <h1 class="teste-h1">{{a.id}}</h1>
-                <h2 class="teste-h2">- {{a.description}} -</h2> 
+            <li class="block" v-for="item in filteredItems">
+                <img :src=" item.imagem " alt="" class="imagem">
+                <h1 class="teste-h1">{{item.id}}</h1>
+                <h2 class="teste-h2">- {{item.description}} -</h2> 
             </li>
         </ul>
 
