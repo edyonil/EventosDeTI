@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css"  href="./src/css/style.min.css" />
 </head>
-<body>
+<body style="height: 1500px">
     
     <div id="app">
         <h1> {{titulo}}  </h1>
@@ -21,17 +21,17 @@
                 {{t.name}}  - {{t.age}} 
             </li>
         </ul>
-        <p class="paragrafos"  v-for="a in items">
-            {{a.id}}  - <span> {{a.title}} </span> - {{a.description}}   
+        <p class="paragrafos"  v-for="person in persons">
+            {{person.name.first}}  {{person.name.last}} 
         </p>
                 <input type="text" v-model="search">
-        <ul>
+        <!-- <ul>
             <li class="block" v-for="item in filteredItems">
                 <img :src=" item.imagem " alt="" class="imagem">
                 <h1 class="teste-h1">{{item.id}}</h1>
                 <h2 class="teste-h2">- {{item.description}} -</h2> 
             </li>
-        </ul>
+        </ul> -->
 
     </div>
 
