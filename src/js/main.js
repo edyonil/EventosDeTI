@@ -1,69 +1,41 @@
 var app = new Vue ({
     el:'#app',
     data:{
-        titulo: 'title',
         items: [] ,
-        persons:[],
         search: '',
-        lista : [] ,
-        cadastro: {
-            name : '',
-            age : '',
-            imagem : "https://pic1.zhimg.com/v2-aad666a6b3f2bfa1890687b5bdea7e43_1200x500.jpg"
-            
-        },
-      
     },  
     methods:{
-          addDados(){
-            this.lista.push({name : this.cadastro.name , age : this.cadastro.age});
-            this.cadastro.name = '';
-            this.cadastro.age = ''
+        getInitialUsers () {
+            for (var i = 0; i < 10; i++) {
+                this.$http.get('https://guarded-oasis-77929.herokuapp.com/api/event',).then(response => {
+                  this.items.push(response.data.results[0]);
+                });
+            }
+          },
+        beforeMount() {
+            this.getInitialUsers();
         },
-        // getInitialUsers () {
-        //     for (var i = 0; i < 5; i++) {
-        //         this.$http.get('https://randomuser.me/api/').then(response => {
-        //           this.persons.push(response.data.results[0]);
-        //         });
-        //     }
-        //   },
-        // beforeMount() {
-        //     this.getInitialUsers();
-        // },
-        scroll (persons) {
+        scroll (items) {
             window.onscroll = () => {
-             let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
+                let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
             if (bottomOfWindow) {
-            this.$http.get('https://randomuser.me/api/').then(response => {
-                persons.push(response.data.results[0]);
+                this.$http.get('https://guarded-oasis-77929.herokuapp.com/api/event').then(response => {
+                items.push(response.data.results[0]);
                 
               });
-              console.log('teste')  
           }
         };
       },
     },
     mounted() {
-      this.scroll(this.persons)
+      this.scroll(this.items)
     },
-    created : function(){
-        // this.$http.get('dataserver.json').then(function(response){
-        //     this.items = response.data;
-        // for (var i = 0; i < 5; i++) {
-        //     this.$http.get('dataserver.json').then(response => {
-        //       this.items.push(response.data);
-        //     });
-        // }
-         
-            for (var i = 0; i < 5; i++) {
-                this.$http.get('https://randomuser.me/api/').then(response => {
-                  this.persons.push(response.data.results[0]);
-                });
-            }
-          
-            //  this.getInitialUsers();
-        
+    created : function(){          
+              this.getInitialUsers(); 
         },
+    //
+    // filtro do Vue 
+    //
     // computed : {
     //     filteredItems: function() {
     //         return this.items.filter((item)=> {
@@ -73,3 +45,4 @@ var app = new Vue ({
     //     }
     // }
 })
+console.log('teste')  

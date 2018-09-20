@@ -10,28 +10,14 @@
 <body style="height: 1500px">
     
     <div id="app">
-        <h1> {{titulo}}  </h1>
-
-        <input type="text" v-model="cadastro.name">
-        <input type="text" v-model="cadastro.age">
-        <button v-on:click="addDados" >send</button>
-    
+                <!-- <input type="text" v-model="search"> -->
         <ul>
-            <li v-for="t in lista">
-                {{t.name}}  - {{t.age}} 
-            </li>
-        </ul>
-        <p class="paragrafos"  v-for="person in persons">
-            {{person.name.first}}  {{person.name.last}} 
-        </p>
-                <input type="text" v-model="search">
-        <!-- <ul>
             <li class="block" v-for="item in filteredItems">
                 <img :src=" item.imagem " alt="" class="imagem">
                 <h1 class="teste-h1">{{item.id}}</h1>
-                <h2 class="teste-h2">- {{item.description}} -</h2> 
+                <p class="paragrafos">- {{item.description}} -</p> 
             </li>
-        </ul> -->
+        </ul>
 
     </div>
 
