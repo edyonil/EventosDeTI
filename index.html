@@ -7,14 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css"  href="./src/css/style.min.css" />
 </head>
-<body style="height: 1500px">
+<body style="height:auto">
     
     <div id="app">
-                <!-- <input type="text" v-model="search"> -->
+                <input type="text" v-model="search">
         <ul>
-            <li class="block" v-for="item in filteredItems">
-                <img :src=" item.imagem " alt="" class="imagem">
+            <li class="block" v-for="item in items">
+                <img :src=" item.image " alt="" class="imagem">
+                <p class="paragrafos"> {{item.title}} </p>
+                <h2> {{item.client}} </h2>
                 <h1 class="teste-h1">{{item.id}}</h1>
+                <p class="paragrafos"> {{item.created_at}} </p>
+                <p class="paragrafos"> {{item.address}} </p>
+                <a :href=" item.link "> {{ item.link}} </a>
+                <p class="paragrafos"> {{item.contact}} </p>
+                <p class="paragrafos"> {{item.locale}}</p>
+                <p class="paragrafos"> {{item.production}}</p>
+                <p class="paragrafos"> {{item.upgrade_at}}</p>
+                <p class="paragrafos"> {{item.date_start}} - {{item.date_end}} </p>
+                <p class="paragrafos"> {{item.hour_start}} - {{item.hour_end}} </p>
                 <p class="paragrafos">- {{item.description}} -</p> 
             </li>
         </ul>
