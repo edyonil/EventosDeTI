@@ -1,0 +1,33 @@
+$i: !important;
+
+@media screen and (max-width: 500px){
+    .busca{
+        margin-left: 30px;
+    };
+    .entrada{
+        width: 250px $i;
+    }
+    .entrada-img{
+        display: none $i;
+    };
+    .btn-img{
+        display: block $i;
+    };
+    .btn-p{
+        display: none $i;
+    };
+    .tags{
+        display: none $i;
+    };
+};
+@media screen and (max-width: 960px){
+    .tags{
+        display: none $i; 
+    };
+    .items{
+        width: 500px !important;
+    };
+    .link{
+        float: none $i;
+    }
+}

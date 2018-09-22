@@ -1,17 +1,18 @@
 var app = new Vue ({
     el:'#app',
     data:{
+        config : [],
         items: [] ,
-        search: {},
+        search: '',
     },  
     methods:{
         getInitialUsers () {
                 self = this;
-                let x = 1;
+                let x = 0;
                 this.$http.get('https://guarded-oasis-77929.herokuapp.com/api/event?page=' + x ).then(response => {
-                  this.items = response.data.data.data;
-                  console.log(this.items)
-                  
+                    this.config = response.data;
+                    this.items = response.data.data.data;
+                    console.log(this.items)
                 });
           },
         beforeMount() {
@@ -41,10 +42,10 @@ var app = new Vue ({
     //
     computed : {
         filteredItems: function() {
-            // return this.items.filter((item)=> {
-            //     return item.a.match(this.search)
+            return this.items.filter((item)=> {
+                return items.data.title.match(this.search)
                 
-            // })
+            })
         }
     }
 })
