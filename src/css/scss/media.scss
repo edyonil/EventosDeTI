@@ -1,9 +1,57 @@
 $i: !important;
-
-@media screen and (max-width: 500px){
-    .busca{
-        margin-left: 30px;
+@media screen and (max-width: 550px){
+    .menu-retratil{
+        display: inline-flex $i;
     };
+    .menu{
+        display: none $i;
+    };
+    .btn{
+        width: 48.4px $i;
+        height: 48px $i;
+        justify-content:center;
+    };
+    .local{
+        margin-left: 95px $i;
+        margin-bottom: -40px $i;
+    };
+    .conteudo{
+        padding-left: 64px !important;
+        margin-left: 12px !important;
+        margin-top: -60px $i;
+        padding-bottom: 70px $i;
+    };
+    .link{
+        margin-right: 10px $i;
+    };
+    #app{
+        padding-left: 20px $i;
+    };
+    .busca{
+      margin-right: 20px $i;
+      justify-content: space-between;
+    };
+    .item-img{  
+        width: 70px !important;
+        height: 105px !important;
+    };
+    .imagem{
+        width: 70px $i;
+        height: 105px $i;
+        object-fit: cover $i;
+    };
+}
+@media screen and (max-width: 500px){
+    .items{
+        width: auto $i;
+    };
+    // .local{
+
+    // };
+
+    // .busca{
+    //     margin-left: 30px;
+    // };
     .entrada{
         width: 250px $i;
     }
@@ -25,9 +73,9 @@ $i: !important;
         display: none $i; 
     };
     .items{
-        width: 500px !important;
+        max-width: 500px !important;
     };
     .link{
-        float: none $i;
+        // float: none $i;
     }
 }
