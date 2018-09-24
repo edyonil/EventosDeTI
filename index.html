@@ -6,33 +6,43 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-    <link rel="stylesheet" type="text/css"  href="css/style.min.css"/>
+    <link rel="stylesheet" type="text/css"  href="src/css/style.min.css"/>
 </head>
 <body>
     <header class="cabecalho">
-        <img class="logo" src="image/bitmap.jpg" alt="logo">
+        <img class="logo" src="src/image/bitmap.jpg" alt="logo">
         <ul class="menu">
             <li> <a href="#"> Sobre nós</a></li>
             <li> <a href="#">Créditos</a></li>
             <li> <a href="#">Sugestão</a></li>
-            <li> <a href="#"><img src="image/invalid2-name.png"></a></li>
-            <li> <a href="#"><img src="image/group-7.png"></a></li>
+            <li> <a href="#"><img src="src/image/invalid2-name.png"></a></li>
+            <li> <a href="#"><img src="src/image/group-7.png"></a></li>
         </ul>
-        <button class="menu-retratil" >
-            <img src="src/image/icons-8-carda-pio.png" alt="menu" class="m-img" >
-        </button>
+        <div class="menu2">
+            <input type="checkbox" class="menu-retratil" id="check">
+            <label for="check" class="label-m"> 
+                <img src="src/image/icons-8-carda-pio.png" alt="menu" class="m-img" >
+            </label>
+            <div class="barra">
+                <nav class="menu-lista">
+                    <a href="#" class="m-links"> Sobre nós</a>
+                    <a href="#" class="m-links">Créditos</a>
+                    <a href="#" class="m-links">Sugestão</a>
+                </nav>
+            </div>
+        </div>
     </header>
     <main id="app">
         <div class="container">
             <h1 class="titulo">EvenTI</h1>
             <h2 class="subtitulo">
-                    Agregador para quem   <img src="image/invalid-name.png" alt="coração">   eventos de TI <br>em salvador e região
+                    Agregador para quem   <img src="src/image/invalid-name.png" alt="coração">   eventos de TI <br>em salvador e região
             </h2>
             <div class="busca">
-                <img src="image/magnifier-simple-line-icons.png" class="entrada-img"  alt="buscar">
+                <img src="src/image/magnifier-simple-line-icons.png" class="entrada-img"  alt="buscar">
                 <input type="text" class="entrada" v-model="search" placeholder="Localize um evento" v-on:keyup.enter="">
                 <button class="btn" v-on:click="">
-                    <img src="image/magnifier-simple-line-icons-white.png" alt="buscar" class="btn-img">
+                    <img src="src/image/magnifier-simple-line-icons-white.png" alt="buscar" class="btn-img">
                     <p class="btn-p"> Buscar</p>
                 </button>
             </div>
@@ -47,41 +57,31 @@
                     <div class="conteudo">
                         <p class="title"> {{item.title}} </p>
                         <p class="horario">
-                                {{item.date_start}}, {{item.hour_start}} - {{item.date_end}},  {{item.hour_end}} 
+                             {{item.date_start}} ás {{item.hour_start}} até {{item.date_end}} ás {{item.hour_end}} 
                         </p>
                         <div class="tags">
                             <p class="tag">arduino</p>
                             <p class="tag">Jogos</p>
                             <p class="tag">Banco de dados</p> 
                         </div>
-                        <!-- <h2> {{item.client}} </h2> -->
-                        <!-- <h1 class="teste-h1">{{item.id}}</h1> -->
-                        <!-- <p class="paragrafos"> {{item.created_at}} </p> -->
-                        <!-- <p class="paragrafos"> {{item.address}} </p> -->
                         <a :href=" item.link " target="_blank" class="link"> ver evento </a>
-                        <!-- <p class="paragrafos"> {{item.contact}} </p> -->
-                    
-                        <!-- <p class="paragrafos"> {{item.production}}</p> -->
-                        <!-- <p class="paragrafos"> {{item.upgrade_at}}</p> -->
-                        <!-- <p class="paragrafos">  -  </p> -->
-                        <!-- <p class="paragrafos">  -</p>  -->
-                        <!-- <p class="paragrafos">- {{item.description}} -</p>   
-                    </div> -->
+                    </div>
                 </li> 
             </ul>
         </div>
         <div class="carregamento">
-            <div class="load"><img src="image/bitmap.jpg" class="load-img" alt="logo"></div>
+            <div class="load"><img src="src/image/bitmap.jpg" class="load-img" alt="logo"></div>
             <div class="load-p"><p>Carregando mais…</p></div>
         </div>
         <div class="linha"></div>
     </main>
     <footer class="rodape">
-            <img src="image/bitmap2.jpg" alt="logo" class="rodape-img">
+            <img src="src/image/bitmap2.jpg" alt="logo" class="rodape-img">
             <p> &#169; EvenTI - Eventos de TI</p>
     </footer>
-    <script src="../node_modules/vue/dist/vue.js"></script>
-    <script src="../node_modules/vue-resource/dist/vue-resource.js"></script>
-    <script src="js/main.js"></script>
+    <script src="./node_modules/moment/moment.js"></script>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="./node_modules/vue-resource/dist/vue-resource.js"></script>
+    <script src="src/js/main.js"></script>
 </body>
 </html>

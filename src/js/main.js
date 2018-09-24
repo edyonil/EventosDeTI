@@ -1,3 +1,5 @@
+// Vue.use(require('vue-moment'));
+// import moment from 'moment';
 var app = new Vue ({
     el:'#app',
     data:{
@@ -6,6 +8,9 @@ var app = new Vue ({
         search: '',
     },  
     methods:{
+        // getHumanDate : function (date) {
+        //     return moment(date, 'YYYY-MM-DD').format('DD/MM/YYYY');
+        // },
         getInitialUsers () {
                 self = this;
                 let x = 0;

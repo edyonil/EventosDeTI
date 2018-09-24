@@ -48,6 +48,8 @@
     object-fit: contain;
 }
 #app{
+    padding-right: 20px;
+    padding-left: 20px ;
     align-items: center;
     flex-direction: column;
     display: flex;
@@ -162,7 +164,7 @@
     margin-bottom: 21px;
     margin-top: 150px;
     height: 1px;
-    width: 100%;
+    width: 62%;
     background-color: #dbdbdb;
 };
 .lista{
@@ -249,7 +251,34 @@
 };
 .menu-retratil{
     display: none;
+
 };
+#check:checked ~ .barra{
+    transform: translatex(-550px);
+}
+.barra{
+    display: inline-flex;
+    overflow: hidden;
+    top: 0;
+    right: -550px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: #767676;
+    padding-top: 50px;
+    transition: all .25s linear;
+    z-index: 10;
+
+};
+.label-m{
+    display: inline-flex;
+    right: 25px;
+    position: absolute ;
+    z-index: 100;
+};
+.menu2{
+    display: none;
+}
 .rodape-img{
     padding-right: 16px;
 }

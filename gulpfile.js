@@ -24,10 +24,11 @@ gulp.task('browser-sync', function() {
             "./*.html",
             "./node_modules/vue/dist/vue.js",
             "./node_modules/vue-resource/dist/vue-resource.js",
+            './node_modules/moment/moment.js',
     		"./src/image/*"
 		], {
         server: {
-            baseDir: "./src"
+            baseDir: "./"
         }
 
     })

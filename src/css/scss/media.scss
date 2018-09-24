@@ -1,11 +1,11 @@
 $i: !important;
 @media screen and (max-width: 550px){
-    .menu-retratil{
-        display: inline-flex $i;
-    };
     .menu{
         display: none $i;
     };
+    .menu2{
+        display: inline-flex $i;
+    }
     .btn{
         width: 48.4px $i;
         height: 48px $i;
@@ -24,9 +24,9 @@ $i: !important;
     .link{
         margin-right: 10px $i;
     };
-    #app{
-        padding-left: 20px $i;
-    };
+    // #app{
+    //     padding-left: 20px $i;
+    // };
     .busca{
       margin-right: 20px $i;
       justify-content: space-between;
@@ -72,10 +72,26 @@ $i: !important;
     .tags{
         display: none $i; 
     };
-    .items{
-        max-width: 500px !important;
+    .conteudo{
+        padding-left: 64px !important;
+        margin-left: 12px !important;
+        margin-top: -60px $i;
+        padding-bottom: 70px $i;
     };
-    .link{
-        // float: none $i;
-    }
+    .item-img{  
+        width: 70px !important;
+        height: 105px !important;
+    };
+    .imagem{
+        width: 70px $i;
+        height: 105px $i;
+        object-fit: cover $i;
+    };
+    .items{
+        width: auto $i;
+    };
+    .local{
+        margin-left: 95px $i;
+        margin-bottom: -40px $i;
+    };
 }
