@@ -60,4 +60,4 @@ gulp.task('clean', function(){
 gulp.task('default', ['browser-sync', 'reload'], function(){
     gulp.watch(["./src/css/scss/**/*.scss", "./src/css/scss/*/*.scss"],[ 'sass-dev'])
 });
-gulp.task('build',['clean', 'copy', 'copy-image','copy-js'])
+gulp.task('build',[, 'copy', 'copy-image','copy-js'])
