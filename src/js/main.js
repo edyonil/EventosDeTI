@@ -6,6 +6,7 @@ var app = new Vue ({
         config : [],
         items: [] ,
         search: '',
+        uri: 'https://guarded-oasis-77929.herokuapp.com/api/event'
     },  
     methods:{
         // getHumanDate : function (date) {
@@ -14,26 +15,30 @@ var app = new Vue ({
         getInitialUsers () {
                 self = this;
                 let x = 0;
-                this.$http.get('https://guarded-oasis-77929.herokuapp.com/api/event' ).then(response => {
-                    this.config = response.data;
+                this.$http.get(this.uri).then(response => {
+                    this.config = response.data.data;
                     this.items = response.data.data.data;
-                    console.log(this.items);
-                    console.log(this.config);
-
                 });
           },
         beforeMount() {
             this.getInitialUsers();
         },
         scroll (items) {
-            window.onscroll = () => {
-                let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
-            if (bottomOfWindow) {
-            //         var self = this;
-            //         this.$http.get('https://guarded-oasis-77929.herokuapp.com/api/event?page=').then(response => {
-            //         self.items.push(response.data.data.data) ;
-            //         console.log(this.items)
-            //   });
+            let active = false;
+            window.onscroll = (event) => {    
+            let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight + 350 >= document.documentElement.offsetHeight;
+            if (bottomOfWindow && !active) {
+                active = true;
+                var self = this;
+                console.log(this.config);
+                this.$http.get(this.config.next_page_url).then(response => {
+                    this.config = response.data.data;
+                    let item = response.data.data.data;
+                    item.forEach(data => {
+                        this.items.push(data);
+                    });
+                    active = false;
+                });
           }
         };
       },
